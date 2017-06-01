@@ -1,3 +1,6 @@
+/**
+*运行测试类
+*/
 package com.alibaba.velocity.test;
 
 import java.io.StringWriter;
@@ -105,3 +108,260 @@ public class VelocityTest {
     }
 
 }
+
+/**
+*实体bean
+*/
+package com.alibaba.velocity.bean;
+
+/**
+ * @author wb-wt261136
+ * @version 2017年3月2日 下午2:01:42 类说明
+ */
+public class Mail {
+
+    /**
+     * 主键id
+     */
+    private Integer id;
+
+    /**
+     * 发件人
+     */
+    private String  senderName;
+
+    /**
+     * 发件人邮箱
+     */
+    private String  senderMail;
+
+    /**
+     * 发件人网址
+     */
+    private String  senderWebSite;
+
+    /**
+     * 收件人
+     */
+    private String  receiverName;
+
+    /**
+     * 收件人邮箱
+     */
+    private String  receiverMail;
+
+    /**
+     * 内容
+     */
+    private String  content;
+
+    /**
+     * 日期
+     */
+    private String  date;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getSenderMail() {
+        return senderMail;
+    }
+
+    public void setSenderMail(String senderMail) {
+        this.senderMail = senderMail;
+    }
+
+    public String getSenderWebSite() {
+        return senderWebSite;
+    }
+
+    public void setSenderWebSite(String senderWebSite) {
+        this.senderWebSite = senderWebSite;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
+
+    public String getReceiverMail() {
+        return receiverMail;
+    }
+
+    public void setReceiverMail(String receiverMail) {
+        this.receiverMail = receiverMail;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Mail [id=" + id + ", senderName=" + senderName + ", senderMail=" + senderMail + ", senderWebSite="
+               + senderWebSite + ", receiverName=" + receiverName + ", receiverMail=" + receiverMail + ", content="
+               + content + ", date=" + date + "]";
+    }
+
+}
+
+package com.alibaba.velocity.bean;
+
+/**
+ * 用户实体类
+ * 
+ * @author wb-wt261136
+ * @version 2017年3月2日 下午2:01:22 类说明
+ */
+public class User {
+
+    /**
+     * 用户编号
+     */
+    private Integer id;
+
+    /**
+     * 用户姓名
+     */
+    private String  name;
+
+    /**
+     * 用户密码
+     */
+    private String  password;
+
+    /**
+     * 用户生日
+     */
+    private String  birthday;
+
+    /**
+     * 用户邮箱
+     */
+    private String  email;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", password=" + password + ", birthday=" + birthday + ", email="
+               + email + "]";
+    }
+
+}
+
+/**
+*模板vm文件 
+*
+*/
+1、emailtemplate.vm
+##测试 email
+
+$mail.senderName message notification
+Sender       :   $mail.senderName<$mail.senderMail>        
+Date         :   $mail.date
+Receiver     :   $mail.receiverName<$mail.receiverMail>
+
+Dear $mail.receiverMail:
+$mail.senderName send a message notification as following:
+
+$mail.content
+
+please quick login the $mail.senderWebSite message center and have a look.
+
+                                                      $mail.senderName Team
+                                                      
+2、helloworld.vm 
+##test hello world!
+2 
+3 $hello
+
+
+3、userinfo.vm
+
+##测试User
+
+A: what's your name?
+B: $user.name
+
+A: what's your birthday?
+B: $user.birthday
+
+A: what's your email address?
+B: $user.email
+
+A: good!
+
+/**
+*jar包
+*
+*/
+/velocitydemo/lib/commons-collections-3.2.1.jar
+/velocitydemo/lib/commons-lang-2.4.jar
+/velocitydemo/lib/velocity-1.7-dep.jar
