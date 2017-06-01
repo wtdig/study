@@ -1,0 +1,107 @@
+package com.alibaba.velocity.test;
+
+import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+
+import com.alibaba.velocity.bean.Mail;
+import com.alibaba.velocity.bean.User;
+
+/**
+ * 测试类
+ * 
+ * @author wb-wt261136
+ * @version 2017年3月2日 下午1:39:38
+ */
+public class VelocityTest {
+
+    public static final String HELLO_WORLD_VM_PATH    = "vms/helloworld.vm";
+
+    public static final String USER_INFO_VM_PATH      = "vms/userinfo.vm";
+
+    public static final String EMAIL_TEMPLATE_VM_PATH = "vms/emailtemplate.vm";
+
+    public static void main(String[] args) {
+
+        testHelloWorld(HELLO_WORLD_VM_PATH);
+
+        testUserInfo(USER_INFO_VM_PATH);
+
+        testEmaillTemplate(EMAIL_TEMPLATE_VM_PATH);
+    }
+
+    /**
+     * 简单的hello word
+     * 
+     * @param helloWorldVmPath
+     */
+    private static void testHelloWorld(String helloWorldVmPath) {
+        // 获取模板
+        VelocityEngine engine = new VelocityEngine();
+        engine.init();
+        Template template = engine.getTemplate(helloWorldVmPath);
+        // 填充模板的信息
+        VelocityContext context = new VelocityContext();
+        context.put("hello", "hello word!");
+        // 向模板写入数据
+        StringWriter writer = new StringWriter();
+        template.merge(context, writer);
+        System.out.println(writer.toString());
+    }
+
+    /**
+     * 简单对象的模板写入
+     * 
+     * @param userInfoVmPath
+     */
+    private static void testUserInfo(String userInfoVmPath) {
+        // 获取模板
+        VelocityEngine engine = new VelocityEngine();
+        engine.init();
+        Template template = engine.getTemplate(userInfoVmPath);
+        // 填充模板信息
+        VelocityContext context = new VelocityContext();
+        User user = new User();
+        user.setName("wt");
+        user.setBirthday("1991-3-5");
+        user.setEmail("1662672137@qq.com");
+        context.put("user", user);
+        // 向模板写入数据
+        StringWriter writer = new StringWriter();
+        template.merge(context, writer);
+        System.out.println(writer.toString());
+    }
+
+    /**
+     * 对象写入到模板上
+     * 
+     * @param emailTemplateVmPath
+     */
+    private static void testEmaillTemplate(String emailTemplateVmPath) {
+        // 获取模板
+        VelocityEngine engine = new VelocityEngine();
+        engine.init();
+        Template template = engine.getTemplate(emailTemplateVmPath);
+        // 填充模板信息
+        VelocityContext context = new VelocityContext();
+        Mail mail = new Mail();
+        mail.setContent("2013年腾讯开发者新扶持政策解读及创业机会所在");
+        mail.setReceiverMail("hongtenzone@foxmail.com");
+        mail.setReceiverName("Hongten");
+        mail.setSenderMail("opensns_noreply@tencent.com");
+        mail.setSenderName("腾讯开放平台");
+        mail.setSenderWebSite("open.qq.com");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        mail.setDate(simpleDateFormat.format(new Date()));
+        context.put("mail", mail);
+        // 向模板写入数据
+        StringWriter writer = new StringWriter();
+        template.merge(context, writer);
+        System.out.println(writer.toString());
+    }
+
+}
