@@ -26,5 +26,6 @@ public class Log4jDemo {
 		logger.info("这是info");
 		logger.debug("这是debug");
 		System.out.println("打印日志");
+		System.out.println("打印日志devops");
 	}
 }
