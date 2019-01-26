@@ -15,7 +15,7 @@ public class LoggerTest {
 		System.out.println("new branch");
 		System.out.println("new branch local");
 		System.out.println("new branch romote");
-		System.out.println("new branch 123456");
+		System.out.println("new branch 123456 romote update");
 	}
 
 	@Test
