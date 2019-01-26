@@ -5,13 +5,13 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 public class Log4jDemo {
-	// »ñÈ¡loggerÈÕÖ¾¶ÔÏó
+	// è·å–loggeræ—¥å¿—å¯¹è±¡
 	static Logger logger = Logger.getLogger(Log4jDemo.class);
 
 	public static void main(String[] args) {
-		// Ä¬ÈÏ¼ÓÔØµÄÅäÖÃÏî
+		// é»˜è®¤åŠ è½½çš„é…ç½®é¡¹
 		//BasicConfigurator.configure();
-		//ÉèÖÃÈÕÖ¾¼¶±ğ
+		//è®¾ç½®æ—¥å¿—çº§åˆ«
 		//logger.setLevel(Level.ERROR);
 		logger.trace("trace");
 		logger.debug("debug");
@@ -21,11 +21,11 @@ public class Log4jDemo {
 		logger.fatal("fatal");
 	}
 	
-	//´òÓ¡loggerÈÕÖ¾µÄ·½·¨
+	//æ‰“å°loggeræ—¥å¿—çš„æ–¹æ³•
 	public void loggerStudy(){
-		logger.info("ÕâÊÇinfo");
-		logger.debug("ÕâÊÇdebug");
-		System.out.println("´òÓ¡ÈÕÖ¾");
-		System.out.println("´òÓ¡ÈÕÖ¾devops");
+		logger.info("è¿™æ˜¯info");
+		logger.debug("è¿™æ˜¯debug");
+		System.out.println("æ‰“å°æ—¥å¿—123");
+		System.out.println("æ‰“å°æ—¥å¿—devops");
 	}
 }
