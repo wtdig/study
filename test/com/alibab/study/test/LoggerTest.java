@@ -13,8 +13,9 @@ public class LoggerTest {
 	public static void setUpBeforeClass() throws Exception {
 		System.out.println("֮ǰ");
 		System.out.println("new branch");
+		System.out.println("new branch local");
 		System.out.println("new branch romote");
-		System.out.println("new branch 123");
+		System.out.println("new branch 123456");
 	}
 
 	@Test
