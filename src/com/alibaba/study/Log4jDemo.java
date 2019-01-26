@@ -5,13 +5,13 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 public class Log4jDemo {
-	// 获取logger日志对象
+	// ��ȡlogger��־����
 	static Logger logger = Logger.getLogger(Log4jDemo.class);
 
 	public static void main(String[] args) {
-		// 默认加载的配置项
+		// Ĭ�ϼ��ص�������
 		//BasicConfigurator.configure();
-		//设置日志级别
+		//������־����
 		//logger.setLevel(Level.ERROR);
 		logger.trace("trace");
 		logger.debug("debug");
@@ -21,11 +21,11 @@ public class Log4jDemo {
 		logger.fatal("fatal");
 	}
 	
-	//打印logger日志的方法
+	//��ӡlogger��־�ķ���
 	public void loggerStudy(){
-		logger.info("这是info");
-		logger.debug("这是debug");
-		System.out.println("打印日志123");
-		System.out.println("打印日志devops");
+		logger.info("����info");
+		logger.debug("����debug");
+		System.out.println("��ӡ��־1234");
+		System.out.println("��ӡ��־devops");
 	}
 }

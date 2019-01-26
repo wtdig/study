@@ -13,7 +13,7 @@ public class LoggerTest {
 	public static void setUpBeforeClass() throws Exception {
 		System.out.println("֮ǰ");
 		System.out.println("new branch");
-                 System.out.println("new branch");
+		System.out.println("new branch");
 	}
 
 	@Test
