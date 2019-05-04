@@ -17,6 +17,7 @@ public class LoggerTest {
 		System.out.println("new branch romote");
 		System.out.println("new branch 123456 lcoal update");
 		System.out.println("new branch 123456 romote update");
+		System.out.println("test");
 	}
 
 	@Test
